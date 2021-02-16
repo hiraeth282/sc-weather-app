@@ -65,3 +65,8 @@ body {
 .five-day-forecast {
   margin: 50px 0px 30px 50px;
 }
+
+footer {
+  font-size: 10px;
+  font-family: monospace;
+}
