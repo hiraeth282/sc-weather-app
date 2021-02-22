@@ -62,6 +62,10 @@ body {
   font-size: 15px;
 }
 
+.weather-detail {
+  text-align: center;
+}
+
 .five-day-forecast {
   margin: 50px 0px 30px 70px;
 }

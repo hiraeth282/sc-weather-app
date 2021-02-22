@@ -51,8 +51,11 @@ function searchCity(city) {
   }
 
 function displayWeather(response) {
+  console.log(response.data);
   document.querySelector("#city").innerHTML = response.data.name;
   document.querySelector("#main-temperature").innerHTML = `${Math.round(response.data.main.temp)}°`;
+  document.querySelector("#precipitation-probability").innerHTML = `${Math.round(response.data.main.humidity)}%`
+  document.querySelector("#wind-speed").innerHTML = `${Math.round(response.data.wind.speed)} kph`
 }
 
 function handleSubmit(event) {
