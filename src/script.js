@@ -56,6 +56,7 @@ function displayWeather(response) {
   document.querySelector("#main-temperature").innerHTML = `${Math.round(response.data.main.temp)}°`;
   document.querySelector("#precipitation-probability").innerHTML = `${Math.round(response.data.main.humidity)}%`
   document.querySelector("#wind-speed").innerHTML = `${Math.round(response.data.wind.speed)} kph`
+  document.querySelector("#weather-description").innerHTML = `${response.data.weather[0].description}`
 }
 
 function handleSubmit(event) {
