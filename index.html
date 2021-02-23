@@ -26,27 +26,24 @@
   <body>
     <div class="container">
       <div class="weather-app">
-        <form id="city-search-form">
+        <form id="city-search-form" class="mb-3">
           <div class="row">
             <div class="col-8">
-              <div class="mb-3">
-                <input
-                  type="search"
-                  class="form-control shadow-sm"
-                  id="city-input"
-                  placeholder="Enter city here"
-                  autocomplete="off"
-                  autofocus="on"
-                />
-              </div>
+              <input
+                type="search"
+                class="form-control shadow-sm"
+                id="city-input"
+                placeholder="Enter city here"
+                autocomplete="off"
+                autofocus="on"
+              />
             </div>
             <div class="col-2 search-button" id="search-button">
-              <button
-                type="button"
+              <input
+                type="submit"
+                value="Search"
                 class="btn btn-light w-100 shadow-sm border-0"
-              >
-                Search
-              </button>
+              />
             </div>
             <div class="col-2 local-button" id="local-button">
               <button
