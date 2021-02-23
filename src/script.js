@@ -52,14 +52,17 @@ function searchCity(city) {
 
 function displayWeather(response) {
   let currentWeatherIcon = document.querySelector("#current-weather-icon");
+  celsiusTemperature = response.data.main.temp
 
   document.querySelector("#city").innerHTML = response.data.name;
-  document.querySelector("#main-temperature").innerHTML = `${Math.round(response.data.main.temp)}°`;
+  document.querySelector("#main-temperature").innerHTML = `${Math.round(celsiusTemperature)}°`;
   document.querySelector("#precipitation-probability").innerHTML = `${Math.round(response.data.main.humidity)}%`
   document.querySelector("#wind-speed").innerHTML = `${Math.round(response.data.wind.speed)} kph`
   document.querySelector("#weather-description").innerHTML = `${response.data.weather[0].description}`
   currentWeatherIcon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`)
   currentWeatherIcon.setAttribute("alt", response.data.weather[0].description);
+
+  
 }
 
 function handleSubmit(event) {
@@ -82,6 +85,18 @@ function searchPosition(position) {
   axios.get(apiUrl).then(displayWeather);
 }
 
+function displayFahrenheitTemp(event) {
+    event.preventDefault();
+    let currentTemp = document.querySelector("#main-temperature");
+    let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+    currentTemp.innerHTML = `${Math.round(fahrenheitTemperature)}°`;
+}
+
+function displayCelsiusTemp(event) {
+  event.preventDefault();
+  let currentTemp = document.querySelector("#main-temperature");
+  currentTemp.innerHTML = `${Math.round(celsiusTemperature)}°`;
+}
 
 
 let dateElement = document.querySelector("#current-date");
@@ -98,23 +113,13 @@ searchForm.addEventListener("submit", handleSubmit);
 let currentLocationButton = document.querySelector("#local-button");
 currentLocationButton.addEventListener("click", findCurrentLocation);
 
-searchCity("Tokyo");
 
-//Temperature
-function getFahrenheitTemp(event) {
-    event.preventDefault();
-    let currentTemp = document.querySelector("#main-temperature");
-    currentTemp.innerHTML = `46°`;
-}
-
-function getCelsiusTemp(event) {
-    event.preventDefault();
-    let currentTemp = document.querySelector("#main-temperature");
-    currentTemp.innerHTML = `8°`;
-}
+let celsiusTemperature = null;
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", getFahrenheitTemp);
+fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
 
 let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", getCelsiusTemp);
+celsiusLink.addEventListener("click", displayCelsiusTemp);
+
+searchCity("Tokyo");
