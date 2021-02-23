@@ -4,14 +4,14 @@ html {
 
 body {
   margin-top: 50px;
-  background-image: linear-gradient(to top, #6a85b6 0%, #bac8e0 100%);
+  background-image: linear-gradient(to top, #ebbba7 0%, #cfc7f8 100%);
   font-family: "Alegreya Sans", sans-serif;
 }
 
 .weather-app {
-  border: 1px solid #393f4e;
+  background-color: rgb(255, 255, 255, 0.2);
+  border: none;
   border-radius: 10px;
-  padding: 20px 15px 0px;
   max-width: 700px;
   margin: 0 auto;
 }
