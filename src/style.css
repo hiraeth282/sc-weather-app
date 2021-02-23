@@ -19,7 +19,6 @@ body {
 .date,
 .time,
 .city,
-.current-weather-icon,
 .temperature,
 .five-day-forecast {
   text-align: center;
@@ -28,7 +27,6 @@ body {
 .date,
 .time,
 .city,
-.current-weather-icon,
 .temperature,
 .celsius,
 .fahrenheit,
@@ -56,7 +54,8 @@ body {
 
 .current-weather-icon {
   font-size: 120px;
-  line-height: 20px;
+  display: block;
+  margin: 0 auto;
 }
 
 .degree-temp {

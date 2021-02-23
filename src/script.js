@@ -52,11 +52,15 @@ function searchCity(city) {
 
 function displayWeather(response) {
   console.log(response.data);
+
+  let currentWeatherIcon = document.querySelector("#current-weather-icon");
+
   document.querySelector("#city").innerHTML = response.data.name;
   document.querySelector("#main-temperature").innerHTML = `${Math.round(response.data.main.temp)}°`;
   document.querySelector("#precipitation-probability").innerHTML = `${Math.round(response.data.main.humidity)}%`
   document.querySelector("#wind-speed").innerHTML = `${Math.round(response.data.wind.speed)} kph`
   document.querySelector("#weather-description").innerHTML = `${response.data.weather[0].description}`
+  currentWeatherIcon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`)
 }
 
 function handleSubmit(event) {
