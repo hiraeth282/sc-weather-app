@@ -51,8 +51,6 @@ function searchCity(city) {
   }
 
 function displayWeather(response) {
-  console.log(response.data);
-
   let currentWeatherIcon = document.querySelector("#current-weather-icon");
 
   document.querySelector("#city").innerHTML = response.data.name;
@@ -61,6 +59,7 @@ function displayWeather(response) {
   document.querySelector("#wind-speed").innerHTML = `${Math.round(response.data.wind.speed)} kph`
   document.querySelector("#weather-description").innerHTML = `${response.data.weather[0].description}`
   currentWeatherIcon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`)
+  currentWeatherIcon.setAttribute("alt", response.data.weather[0].description);
 }
 
 function handleSubmit(event) {
