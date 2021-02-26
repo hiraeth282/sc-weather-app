@@ -87,6 +87,8 @@ function searchPosition(position) {
 
 function displayFahrenheitTemp(event) {
     event.preventDefault();
+    celsiusLink.classList.remove("active");
+    fahrenheitLink.classList.add("active");
     let currentTemp = document.querySelector("#main-temperature");
     let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
     currentTemp.innerHTML = `${Math.round(fahrenheitTemperature)}°`;
@@ -94,6 +96,8 @@ function displayFahrenheitTemp(event) {
 
 function displayCelsiusTemp(event) {
   event.preventDefault();
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
   let currentTemp = document.querySelector("#main-temperature");
   currentTemp.innerHTML = `${Math.round(celsiusTemperature)}°`;
 }
@@ -122,4 +126,4 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemp);
 
-searchCity("Tokyo");
+searchCity("Tokyo"); 

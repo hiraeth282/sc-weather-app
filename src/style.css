@@ -27,9 +27,7 @@ body {
 .date,
 .time,
 .city,
-.temperature,
-.celsius,
-.fahrenheit,
+.main-temperature,
 .five-day-forecast {
   color: #393f4e;
 }
@@ -57,7 +55,7 @@ body {
   margin: 0 auto;
 }
 
-.degree-temp {
+.main-temperature {
   font-size: 60px;
 }
 
@@ -67,6 +65,11 @@ body {
 
 .weather-detail:first-letter {
   text-transform: capitalize;
+}
+
+.temperature .active {
+  color: #393f4e;
+  cursor: default;
 }
 
 .five-day-forecast {
