@@ -48,6 +48,9 @@ function searchCity(city) {
     let unit = "metric";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
     axios.get(apiUrl).then(displayWeather);
+
+    apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=${unit}`;
+    axios.get(apiUrl).then(displayForecast);
   }
 
 function displayWeather(response) {
@@ -61,8 +64,34 @@ function displayWeather(response) {
   document.querySelector("#weather-description").innerHTML = `${response.data.weather[0].description}`
   currentWeatherIcon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`)
   currentWeatherIcon.setAttribute("alt", response.data.weather[0].description);
+}
 
-  
+function formatForecastTime(timestamp) {
+  let date = new Date(timestamp);
+  let hour = date.getHours();
+  let minutes = date.getMinutes();
+    if (minutes < 10) {
+        minutes = `0${minutes}`;
+    }
+
+  return `${hour}:${minutes}`;
+}
+
+function displayForecast(response) {
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = null;
+  let forecast = null;
+
+  for (let index = 0; index < 6; index++) {
+    forecast = response.data.list[index];
+    forecastElement.innerHTML += `
+    <div class="col-2">
+      <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" alt="" />
+      <div class="forecast-time">${formatForecastTime(forecast.dt * 1000)}</div>
+      <div class="forecast-temperature">${Math.round(forecast.main.temp_max)}°/ ${Math.round(forecast.main.temp_min)}°</div>
+    </div>
+    `;
+  }
 }
 
 function handleSubmit(event) {

@@ -20,7 +20,7 @@ body {
 .time,
 .city,
 .temperature,
-.five-day-forecast {
+.weather-forecast {
   text-align: center;
 }
 
@@ -28,7 +28,7 @@ body {
 .time,
 .city,
 .main-temperature,
-.five-day-forecast {
+.weather-forecast {
   color: #393f4e;
 }
 
@@ -72,7 +72,7 @@ body {
   cursor: default;
 }
 
-.five-day-forecast img {
+.weather-forecast img {
   height: 55px;
   width: 55px;
 }
