@@ -72,8 +72,9 @@ body {
   cursor: default;
 }
 
-.five-day-forecast {
-  margin: 50px 0px 30px 70px;
+.five-day-forecast img {
+  height: 55px;
+  width: 55px;
 }
 
 footer {
